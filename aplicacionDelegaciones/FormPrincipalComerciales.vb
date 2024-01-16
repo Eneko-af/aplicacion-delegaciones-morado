@@ -1,0 +1,136 @@
+﻿Imports System.Data.SqlClient
+
+Public Class FormPrincipalComerciales
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim dtZonas As New DataTable
+        Dim queryZonas As String = "SELECT * FROM ZONAS"
+        Dim query As String = "SELECT * FROM COMERCIALES"
+
+        rellenarDG(query)
+
+        dtZonas = establecerConexion(queryZonas)
+
+        ComboBox1.Items.Add("SIN ZONA")
+
+        For Each row As DataRow In dtZonas.Rows
+
+            ComboBox1.Items.Add(row("DESCRIPCION_ZONA").ToString())
+
+        Next
+
+
+    End Sub
+    Private Sub DataGridView1_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseDoubleClick
+
+        If e.RowIndex >= 0 Then
+            Dim dtZonas As New DataTable
+            Dim queryZonas As String
+            Dim valorIDComercial As Object
+            Dim valorZonaPrincipal As Object
+            Dim valorZonaSecundaria As Object
+
+            queryZonas = "SELECT * FROM ZONAS"
+            valorIDComercial = DataGridView1.Rows(0).Cells(0).Value
+            valorZonaPrincipal = DataGridView1.Rows(0).Cells(9).Value
+            valorZonaSecundaria = DataGridView1.Rows(0).Cells(10).Value
+
+            dtZonas = establecerConexion(queryZonas)
+
+            Dim formCONSULTAS As New CONSULTA_COMERCIALES
+
+            formCONSULTAS.TB_ID.Text = valorIDComercial
+
+            For Each row As DataRow In dtZonas.Rows
+
+                formCONSULTAS.cbZONA1.Items.Add(row("DESCRIPCION_ZONA").ToString())
+                formCONSULTAS.cbZONA2.Items.Add(row("DESCRIPCION_ZONA").ToString())
+
+            Next
+
+            formCONSULTAS.cbZONA1.SelectedIndex = valorZonaPrincipal - 1
+            formCONSULTAS.cbZONA2.SelectedIndex = valorZonaSecundaria - 1
+
+            formCONSULTAS.ShowDialog()
+
+        End If
+    End Sub
+
+    Private Sub buscarPorZonas(selectedItem As String)
+        Dim query As String = "SELECT * 
+                                        FROM COMERCIALES WHERE ZONA_PRINCIPAL = (      
+                                        SELECT ID_ZONA
+                                        FROM ZONAS
+                                        WHERE DESCRIPCION_ZONA = '" & selectedItem & "')"
+        rellenarDG(query)
+    End Sub
+
+    Private Sub buscarPorDNI(DNI_Empleado As String)
+        Dim query As String = "SELECT * FROM COMERCIALES WHERE NIE LIKE '" & DNI_Empleado & "%'"
+        rellenarDG(query)
+    End Sub
+
+    Private Sub vaciarCampos()
+        TA_FiltrarPorNIE.Text = ""
+        ComboBox1.SelectedIndex = -1
+    End Sub
+
+    Private Sub rellenarDG(query As String)
+        DataGridView1.DataSource = establecerConexion(query)
+    End Sub
+
+    Private Sub TA_FiltrarPorNIE_TextChanged(sender As Object, e As EventArgs) Handles TA_FiltrarPorNIE.TextChanged
+        If TA_FiltrarPorNIE.Text.Length >= 1 And TA_FiltrarPorNIE.Text.Length < 10 Then
+            buscarPorDNI(TA_FiltrarPorNIE.Text)
+            ComboBox1.Enabled = False
+        ElseIf TA_FiltrarPorNIE.Text = "" Then
+            Dim query As String = "SELECT * FROM COMERCIALES"
+            rellenarDG(query)
+            ComboBox1.Enabled = True
+        Else
+            TA_FiltrarPorNIE.Text = ""
+        End If
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        If ComboBox1.SelectedIndex > 0 Then
+            buscarPorZonas(ComboBox1.SelectedItem)
+            TA_FiltrarPorNIE.ReadOnly = True
+        Else
+            Dim query As String = "SELECT * FROM COMERCIALES"
+            rellenarDG(query)
+            TA_FiltrarPorNIE.ReadOnly = False
+            vaciarCampos()
+        End If
+    End Sub
+
+    Public Shared Function establecerConexion(query As String)
+
+        Dim stringConexion As SqlConnectionStringBuilder
+        Dim conexion As SqlConnection
+
+        stringConexion = New SqlConnectionStringBuilder()
+
+        stringConexion.DataSource = "192.168.0.223"
+        stringConexion.InitialCatalog = "PRUEBA4"
+        stringConexion.UserID = "sa"
+        stringConexion.Password = "123456aA"
+
+        conexion = New SqlConnection(stringConexion.ConnectionString)
+
+        Dim adapter As New SqlDataAdapter(query, stringConexion.ConnectionString)
+        Dim dt As New DataTable()
+
+        Try
+            conexion.Open()
+            adapter.Fill(dt)
+            Return dt
+        Catch ex As Exception
+            Console.WriteLine("Error al establecer la conexión: " & ex.Message)
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+
+End Class
