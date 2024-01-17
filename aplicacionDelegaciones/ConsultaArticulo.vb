@@ -123,5 +123,12 @@ Public Class ConsultaArticulo
         End Try
     End Sub
 
+    Private Sub Agregar_Click(sender As Object, e As EventArgs) Handles Agregar.Click
+        Dim formAgregarArticulo As New Agregar_articulo()
+        formAgregarArticulo.ShowDialog()
+    End Sub
 
+    Private Sub Borrar_Click(sender As Object, e As EventArgs) Handles Borrar.Click
+
+    End Sub
 End Class
