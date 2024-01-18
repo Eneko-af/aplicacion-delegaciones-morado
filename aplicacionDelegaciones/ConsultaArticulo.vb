@@ -129,6 +129,7 @@ Public Class ConsultaArticulo
     End Sub
 
     Private Sub Borrar_Click(sender As Object, e As EventArgs) Handles Borrar.Click
-
+        Dim formBorrar As New Borrar()
+        formBorrar.ShowDialog()
     End Sub
 End Class
