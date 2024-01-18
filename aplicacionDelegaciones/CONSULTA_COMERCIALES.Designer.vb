@@ -60,11 +60,11 @@ Partial Class CONSULTA_COMERCIALES
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label1.Font = New System.Drawing.Font("Times New Roman", 25.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.Label1.Location = New System.Drawing.Point(201, 34)
+        Me.Label1.Location = New System.Drawing.Point(199, 22)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(641, 50)
+        Me.Label1.Size = New System.Drawing.Size(590, 50)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "CONSULTA DE COMERCIALES"
+        Me.Label1.Text = "CONSULTA DE COMERCIAL"
         '
         'Label2
         '

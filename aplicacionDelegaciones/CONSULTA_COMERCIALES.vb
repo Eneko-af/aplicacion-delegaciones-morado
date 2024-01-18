@@ -38,9 +38,6 @@ Public Class CONSULTA_COMERCIALES
 
             Next
 
-            'TB_Zona1.Text = linea("ZONA_PRINCIPAL")
-            'TB_Zona2.Text = linea("ZONA_ADICIONAL")
-
             'DAROS PERSONALES
             TB_Nombre.Text = linea("NOMBRE")
             TB_Apellido1.Text = linea("APELLIDO_UNO")
@@ -63,11 +60,56 @@ Public Class CONSULTA_COMERCIALES
 
     End Sub
     Private Sub btnGUARDAR_Click(sender As Object, e As EventArgs) Handles btnGUARDAR.Click
-        'INSERT EN LA BDD
-        btnGUARDAR.Enabled = False
-        habilitarTextBoxes(True)
-        MessageBox.Show("SE HA GUARDADO LA INFORMACIÓN")
+        Dim insertQuery As String
+        If TB_Nombre.Text = "" Or TB_Apellido1.Text = "" Or TB_Apellido2.Text = "" Or TB_DNI.Text = "" Or TB_Mail.Text = "" Or TB_Tlf.Text = "" Or TB_Direccion.Text = "" Or TB_FechaContratacion.Text = "" Then
+            MessageBox.Show("Uno o varios campos está vacío.")
+        ElseIf Not validarFecha(TB_FechaContratacion.Text) Then
+            MessageBox.Show("La fecha de contratación no está en el formato correcto (dd/MM/yyyy).")
+        Else
+
+            insertQuery = "
+                UPDATE COMERCIALES
+                SET
+                    NOMBRE = '" & TB_Nombre.Text.ToUpper & "',
+                    APELLIDO_UNO = '" & TB_Apellido1.Text.ToUpper & "',
+                    APELLIDO_DOS = '" & TB_Apellido2.Text.ToUpper & "',
+                    NIE = '" & TB_DNI.Text.ToUpper & "',
+                    EMAIL = '" & TB_Mail.Text.ToUpper & "',
+                    TELEFONO = '" & TB_Tlf.Text.ToUpper & "',
+                    DIRECCION = '" & TB_Direccion.Text.ToUpper & "',
+                    FECHA_CONTRATACION = '" & TB_FechaContratacion.Text & "',
+                    ZONA_PRINCIPAL = '" & obtenerIDZona(cbZONA1.SelectedItem.ToString) & "',
+                    ZONA_ADICIONAL = '" & obtenerIDZona(cbZONA2.SelectedItem.ToString) & "'
+                WHERE
+                    ID_COMERCIAL = '" & TB_ID.Text & "'"
+
+            conexionInstert(insertQuery)
+            btnGUARDAR.Enabled = False
+            habilitarTextBoxes(True)
+            MessageBox.Show("SE HA GUARDADO LA INFORMACIÓN")
+        End If
+
     End Sub
+
+    Private Function obtenerIDZona(descripcionZona As String) As String
+        Dim dt As New DataTable
+        Dim idZona As Integer
+        Dim query As String = "SELECT ID_ZONA FROM ZONAS
+                                WHERE DESCRIPCION_ZONA = '" & descripcionZona & "'"
+
+        dt = establecerConexion(query)
+
+        idZona = dt.Rows(0)("ID_ZONA")
+
+        Return idZona
+
+    End Function
+
+    Private Function validarFecha(dateString As String) As Boolean
+        Dim parsedDate As DateTime
+        Return DateTime.TryParseExact(dateString, "dd/MM/yyyy", Nothing, Globalization.DateTimeStyles.None, parsedDate)
+    End Function
+
 
     Private Sub habilitarTextBoxes(habilitar As Boolean)
         'DATOS EMPRESA
@@ -111,6 +153,32 @@ Public Class CONSULTA_COMERCIALES
         Finally
             conexion.Close()
         End Try
+    End Function
+
+    Public Shared Function conexionInstert(query As String)
+
+        Dim stringConexion As SqlConnectionStringBuilder
+        Dim conexion As SqlConnection
+
+        stringConexion = New SqlConnectionStringBuilder()
+
+        stringConexion.DataSource = "192.168.0.223"
+        stringConexion.InitialCatalog = "PRUEBA4"
+        stringConexion.UserID = "sa"
+        stringConexion.Password = "123456aA"
+
+        conexion = New SqlConnection(stringConexion.ConnectionString)
+
+        Try
+            conexion.Open()
+            Dim comando As New SqlCommand(query, conexion)
+            comando.ExecuteNonQuery()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        Finally
+            conexion.Close()
+        End Try
+
     End Function
 
 End Class

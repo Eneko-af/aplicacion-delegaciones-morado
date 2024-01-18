@@ -3,6 +3,9 @@
 Public Class FormPrincipalComerciales
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        TA_FiltrarPorNIE.MaxLength = 10
+
         Dim dtZonas As New DataTable
         Dim queryZonas As String = "SELECT * FROM ZONAS"
         Dim query As String = "SELECT * FROM COMERCIALES"
@@ -31,9 +34,9 @@ Public Class FormPrincipalComerciales
             Dim valorZonaSecundaria As Object
 
             queryZonas = "SELECT * FROM ZONAS"
-            valorIDComercial = DataGridView1.Rows(0).Cells(0).Value
-            valorZonaPrincipal = DataGridView1.Rows(0).Cells(9).Value
-            valorZonaSecundaria = DataGridView1.Rows(0).Cells(10).Value
+            valorIDComercial = DataGridView1.Rows(e.RowIndex).Cells(0).Value
+            valorZonaPrincipal = DataGridView1.Rows(e.RowIndex).Cells(9).Value
+            valorZonaSecundaria = DataGridView1.Rows(e.RowIndex).Cells(10).Value
 
             dtZonas = establecerConexion(queryZonas)
 
@@ -80,15 +83,14 @@ Public Class FormPrincipalComerciales
     End Sub
 
     Private Sub TA_FiltrarPorNIE_TextChanged(sender As Object, e As EventArgs) Handles TA_FiltrarPorNIE.TextChanged
-        If TA_FiltrarPorNIE.Text.Length >= 1 And TA_FiltrarPorNIE.Text.Length < 10 Then
-            buscarPorDNI(TA_FiltrarPorNIE.Text)
-            ComboBox1.Enabled = False
-        ElseIf TA_FiltrarPorNIE.Text = "" Then
+
+        If TA_FiltrarPorNIE.Text = "" Then
             Dim query As String = "SELECT * FROM COMERCIALES"
             rellenarDG(query)
             ComboBox1.Enabled = True
         Else
-            TA_FiltrarPorNIE.Text = ""
+            buscarPorDNI(TA_FiltrarPorNIE.Text)
+            ComboBox1.Enabled = False
         End If
     End Sub
 
@@ -132,5 +134,22 @@ Public Class FormPrincipalComerciales
         End Try
     End Function
 
+    Private Sub refreshButton_Click(sender As Object, e As EventArgs) Handles refreshButton.Click
 
+        Dim dtZonas As New DataTable
+        Dim queryZonas As String = "SELECT * FROM ZONAS"
+        Dim query As String = "SELECT * FROM COMERCIALES"
+
+        rellenarDG(query)
+
+        dtZonas = establecerConexion(queryZonas)
+
+        ComboBox1.Items.Add("SIN ZONA")
+
+        For Each row As DataRow In dtZonas.Rows
+
+            ComboBox1.Items.Add(row("DESCRIPCION_ZONA").ToString())
+
+        Next
+    End Sub
 End Class

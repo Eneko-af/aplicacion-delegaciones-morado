@@ -29,6 +29,7 @@ Partial Class FormPrincipalComerciales
         Me.TA_FiltrarPorNIE = New System.Windows.Forms.TextBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.btnAniadirComercial = New System.Windows.Forms.Button()
+        Me.refreshButton = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -100,11 +101,21 @@ Partial Class FormPrincipalComerciales
         Me.btnAniadirComercial.Text = "AÑADIR COMERCIAL"
         Me.btnAniadirComercial.UseVisualStyleBackColor = True
         '
+        'refreshButton
+        '
+        Me.refreshButton.Location = New System.Drawing.Point(1159, 63)
+        Me.refreshButton.Name = "refreshButton"
+        Me.refreshButton.Size = New System.Drawing.Size(106, 23)
+        Me.refreshButton.TabIndex = 9
+        Me.refreshButton.Text = "REFRESCAR"
+        Me.refreshButton.UseVisualStyleBackColor = True
+        '
         'FormPrincipalComerciales
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1298, 493)
+        Me.Controls.Add(Me.refreshButton)
         Me.Controls.Add(Me.btnAniadirComercial)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.TA_FiltrarPorNIE)
@@ -128,4 +139,5 @@ Partial Class FormPrincipalComerciales
     Friend WithEvents TA_FiltrarPorNIE As TextBox
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents btnAniadirComercial As Button
+    Friend WithEvents refreshButton As Button
 End Class
