@@ -97,6 +97,7 @@ Partial Class ConsultaArticulo
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(36, 163)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.Size = New System.Drawing.Size(887, 386)
@@ -117,11 +118,12 @@ Partial Class ConsultaArticulo
         Me.filtro.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.filtro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.filtro.FormattingEnabled = True
         Me.filtro.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.filtro.Location = New System.Drawing.Point(17, 34)
         Me.filtro.Name = "filtro"
-        Me.filtro.Size = New System.Drawing.Size(96, 24)
+        Me.filtro.Size = New System.Drawing.Size(117, 24)
         Me.filtro.TabIndex = 8
         '
         'GroupBox1
@@ -139,9 +141,9 @@ Partial Class ConsultaArticulo
         '
         'consulta
         '
-        Me.consulta.Location = New System.Drawing.Point(128, 36)
+        Me.consulta.Location = New System.Drawing.Point(140, 34)
         Me.consulta.Name = "consulta"
-        Me.consulta.Size = New System.Drawing.Size(128, 22)
+        Me.consulta.Size = New System.Drawing.Size(116, 22)
         Me.consulta.TabIndex = 11
         '
         'Label2
@@ -155,7 +157,7 @@ Partial Class ConsultaArticulo
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(262, 29)
+        Me.Button2.Location = New System.Drawing.Point(262, 27)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(116, 36)
         Me.Button2.TabIndex = 9

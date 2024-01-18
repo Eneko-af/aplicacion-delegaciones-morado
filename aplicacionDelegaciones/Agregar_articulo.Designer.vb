@@ -44,7 +44,7 @@ Partial Class Agregar_articulo
         'Agregar
         '
         Me.Agregar.Font = New System.Drawing.Font("Times New Roman", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Agregar.Location = New System.Drawing.Point(223, 373)
+        Me.Agregar.Location = New System.Drawing.Point(268, 373)
         Me.Agregar.Name = "Agregar"
         Me.Agregar.Size = New System.Drawing.Size(157, 46)
         Me.Agregar.TabIndex = 11
@@ -54,7 +54,7 @@ Partial Class Agregar_articulo
         'Cancelar
         '
         Me.Cancelar.Font = New System.Drawing.Font("Times New Roman", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Cancelar.Location = New System.Drawing.Point(407, 373)
+        Me.Cancelar.Location = New System.Drawing.Point(431, 373)
         Me.Cancelar.Name = "Cancelar"
         Me.Cancelar.Size = New System.Drawing.Size(157, 46)
         Me.Cancelar.TabIndex = 12
@@ -157,7 +157,7 @@ Partial Class Agregar_articulo
         '
         'stock_min
         '
-        Me.stock_min.Location = New System.Drawing.Point(356, 182)
+        Me.stock_min.Location = New System.Drawing.Point(183, 182)
         Me.stock_min.Multiline = True
         Me.stock_min.Name = "stock_min"
         Me.stock_min.Size = New System.Drawing.Size(139, 34)
@@ -167,7 +167,7 @@ Partial Class Agregar_articulo
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(352, 159)
+        Me.Label7.Location = New System.Drawing.Point(179, 159)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(105, 20)
         Me.Label7.TabIndex = 24
@@ -177,7 +177,7 @@ Partial Class Agregar_articulo
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(179, 159)
+        Me.Label8.Location = New System.Drawing.Point(352, 159)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(111, 20)
         Me.Label8.TabIndex = 23
@@ -185,7 +185,7 @@ Partial Class Agregar_articulo
         '
         'stock_max
         '
-        Me.stock_max.Location = New System.Drawing.Point(183, 182)
+        Me.stock_max.Location = New System.Drawing.Point(356, 182)
         Me.stock_max.Multiline = True
         Me.stock_max.Name = "stock_max"
         Me.stock_max.Size = New System.Drawing.Size(139, 34)
@@ -196,6 +196,7 @@ Partial Class Agregar_articulo
         Me.CATEGORIA.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CATEGORIA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CATEGORIA.FormattingEnabled = True
         Me.CATEGORIA.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.CATEGORIA.Location = New System.Drawing.Point(529, 182)
