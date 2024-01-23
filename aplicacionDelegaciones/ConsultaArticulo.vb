@@ -132,4 +132,9 @@ Public Class ConsultaArticulo
         Dim formBorrar As New Borrar()
         formBorrar.ShowDialog()
     End Sub
+
+    Private Sub Modificar_Click(sender As Object, e As EventArgs) Handles Modificar.Click
+        Dim formModificar As New Modificar()
+        formModificar.ShowDialog()
+    End Sub
 End Class

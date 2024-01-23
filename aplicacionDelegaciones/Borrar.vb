@@ -11,8 +11,6 @@ Public Class Borrar
     End Sub
 
     Private Sub llenar_id()
-
-
         Try
             Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=PRUEBA4;User ID=sa;Password=123456aA;"
             Dim queryString As String = "SELECT ID_ARTICULO FROM ARTICULOS"
