@@ -70,7 +70,6 @@ Partial Class FormAniadirComercial
         '
         'cbZONA2
         '
-        Me.cbZONA2.Enabled = False
         Me.cbZONA2.FormattingEnabled = True
         Me.cbZONA2.Location = New System.Drawing.Point(182, 299)
         Me.cbZONA2.Name = "cbZONA2"
@@ -79,7 +78,6 @@ Partial Class FormAniadirComercial
         '
         'cbZONA1
         '
-        Me.cbZONA1.Enabled = False
         Me.cbZONA1.FormattingEnabled = True
         Me.cbZONA1.Location = New System.Drawing.Point(182, 244)
         Me.cbZONA1.Name = "cbZONA1"
@@ -101,7 +99,6 @@ Partial Class FormAniadirComercial
         Me.TB_Direccion.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.TB_Direccion.Location = New System.Drawing.Point(529, 353)
         Me.TB_Direccion.Name = "TB_Direccion"
-        Me.TB_Direccion.ReadOnly = True
         Me.TB_Direccion.Size = New System.Drawing.Size(309, 22)
         Me.TB_Direccion.TabIndex = 54
         '
@@ -110,7 +107,6 @@ Partial Class FormAniadirComercial
         Me.TB_Tlf.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.TB_Tlf.Location = New System.Drawing.Point(453, 302)
         Me.TB_Tlf.Name = "TB_Tlf"
-        Me.TB_Tlf.ReadOnly = True
         Me.TB_Tlf.Size = New System.Drawing.Size(385, 22)
         Me.TB_Tlf.TabIndex = 53
         '
@@ -119,7 +115,6 @@ Partial Class FormAniadirComercial
         Me.TB_DNI.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.TB_DNI.Location = New System.Drawing.Point(491, 243)
         Me.TB_DNI.Name = "TB_DNI"
-        Me.TB_DNI.ReadOnly = True
         Me.TB_DNI.Size = New System.Drawing.Size(347, 22)
         Me.TB_DNI.TabIndex = 52
         '
@@ -128,7 +123,6 @@ Partial Class FormAniadirComercial
         Me.TB_Apellido2.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.TB_Apellido2.Location = New System.Drawing.Point(620, 186)
         Me.TB_Apellido2.Name = "TB_Apellido2"
-        Me.TB_Apellido2.ReadOnly = True
         Me.TB_Apellido2.Size = New System.Drawing.Size(218, 22)
         Me.TB_Apellido2.TabIndex = 51
         '
@@ -137,7 +131,6 @@ Partial Class FormAniadirComercial
         Me.TB_Apellido1.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.TB_Apellido1.Location = New System.Drawing.Point(600, 133)
         Me.TB_Apellido1.Name = "TB_Apellido1"
-        Me.TB_Apellido1.ReadOnly = True
         Me.TB_Apellido1.Size = New System.Drawing.Size(238, 22)
         Me.TB_Apellido1.TabIndex = 50
         '
@@ -146,7 +139,6 @@ Partial Class FormAniadirComercial
         Me.TB_Nombre.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.TB_Nombre.Location = New System.Drawing.Point(504, 80)
         Me.TB_Nombre.Name = "TB_Nombre"
-        Me.TB_Nombre.ReadOnly = True
         Me.TB_Nombre.Size = New System.Drawing.Size(334, 22)
         Me.TB_Nombre.TabIndex = 49
         '
@@ -155,7 +147,6 @@ Partial Class FormAniadirComercial
         Me.TB_FechaContratacion.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.TB_FechaContratacion.Location = New System.Drawing.Point(265, 182)
         Me.TB_FechaContratacion.Name = "TB_FechaContratacion"
-        Me.TB_FechaContratacion.ReadOnly = True
         Me.TB_FechaContratacion.Size = New System.Drawing.Size(108, 22)
         Me.TB_FechaContratacion.TabIndex = 48
         '
@@ -164,7 +155,6 @@ Partial Class FormAniadirComercial
         Me.TB_Mail.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.TB_Mail.Location = New System.Drawing.Point(85, 130)
         Me.TB_Mail.Name = "TB_Mail"
-        Me.TB_Mail.ReadOnly = True
         Me.TB_Mail.Size = New System.Drawing.Size(288, 22)
         Me.TB_Mail.TabIndex = 47
         '

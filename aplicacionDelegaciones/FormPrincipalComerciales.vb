@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Windows.Forms.VisualStyles
 
 Public Class FormPrincipalComerciales
 
@@ -142,14 +143,32 @@ Public Class FormPrincipalComerciales
 
         rellenarDG(query)
 
-        dtZonas = establecerConexion(queryZonas)
+    End Sub
 
-        ComboBox1.Items.Add("SIN ZONA")
+    Private Sub btnAniadirComercial_Click(sender As Object, e As EventArgs) Handles btnAniadirComercial.Click
+        Dim dtCount As New DataTable
+        Dim dtZonas As New DataTable
+        Dim idNueva As Integer
+        Dim formANIADIR As New FormAniadirComercial
+
+        Dim queryZonas As String = "SELECT * FROM ZONAS"
+        Dim queryCount As String = "SELECT COUNT(*) AS TOTAL FROM COMERCIALES"
+
+        dtCount = establecerConexion(queryCount)
+        dtZonas = establecerConexion(queryZonas)
 
         For Each row As DataRow In dtZonas.Rows
 
-            ComboBox1.Items.Add(row("DESCRIPCION_ZONA").ToString())
+            formANIADIR.cbZONA1.Items.Add(row("DESCRIPCION_ZONA").ToString())
+            formANIADIR.cbZONA2.Items.Add(row("DESCRIPCION_ZONA").ToString())
 
         Next
+
+        idNueva = CInt(dtCount.Rows(0)("TOTAL")) + 1
+
+        formANIADIR.TB_ID.Text = idNueva
+
+        formANIADIR.ShowDialog()
     End Sub
+
 End Class
