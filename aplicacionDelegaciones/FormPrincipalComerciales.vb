@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System.Data.Common
+Imports System.Data.SqlClient
 Imports System.Windows.Forms.VisualStyles
 
 Public Class FormPrincipalComerciales

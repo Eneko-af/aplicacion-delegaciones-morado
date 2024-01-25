@@ -51,6 +51,7 @@ Partial Class CONSULTA_COMERCIALES
         Me.Label15 = New System.Windows.Forms.Label()
         Me.cbZONA1 = New System.Windows.Forms.ComboBox()
         Me.cbZONA2 = New System.Windows.Forms.ComboBox()
+        Me.dltButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -323,11 +324,21 @@ Partial Class CONSULTA_COMERCIALES
         Me.cbZONA2.Size = New System.Drawing.Size(157, 24)
         Me.cbZONA2.TabIndex = 33
         '
+        'dltButton
+        '
+        Me.dltButton.Location = New System.Drawing.Point(12, 564)
+        Me.dltButton.Name = "dltButton"
+        Me.dltButton.Size = New System.Drawing.Size(188, 48)
+        Me.dltButton.TabIndex = 34
+        Me.dltButton.Text = "ELIMINAR"
+        Me.dltButton.UseVisualStyleBackColor = True
+        '
         'CONSULTA_COMERCIALES
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1335, 650)
+        Me.Controls.Add(Me.dltButton)
         Me.Controls.Add(Me.cbZONA2)
         Me.Controls.Add(Me.cbZONA1)
         Me.Controls.Add(Me.Label15)
@@ -393,4 +404,5 @@ Partial Class CONSULTA_COMERCIALES
     Friend WithEvents Label15 As Label
     Public WithEvents cbZONA1 As ComboBox
     Public WithEvents cbZONA2 As ComboBox
+    Friend WithEvents dltButton As Button
 End Class

@@ -52,6 +52,39 @@ Public Class CONSULTA_COMERCIALES
         ActiveForm.Close()
     End Sub
 
+    Private Sub dltButton_Click(sender As Object, e As EventArgs) Handles dltButton.Click
+        Dim resultado As DialogResult = MessageBox.Show("¿Está seguro de que quieres eliminar al comercial?", "Confirmar", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question)
+        If resultado = DialogResult.Yes Then
+            Dim valorID As String
+            Dim insertQuery As String
+            valorID = TB_ID.Text
+
+            insertQuery = "
+                UPDATE COMERCIALES
+                SET
+                    NOMBRE = '(DESABILITADO)" & TB_Nombre.Text.ToUpper & "',
+                    APELLIDO_UNO = '" & TB_Apellido1.Text.ToUpper & "',
+                    APELLIDO_DOS = '" & TB_Apellido2.Text.ToUpper & "',
+                    NIE = '',
+                    EMAIL = '',
+                    TELEFONO = '',
+                    DIRECCION = '',
+                    FECHA_CONTRATACION = '" & TB_FechaContratacion.Text & "',
+                    ZONA_PRINCIPAL = '" & obtenerIDZona("SIN ZONA") & "',
+                    ZONA_ADICIONAL = '" & obtenerIDZona("SIN ZONA") & "'
+                WHERE
+                    ID_COMERCIAL = '" & TB_ID.Text & "'"
+
+            conexionInstert(insertQuery)
+            MessageBox.Show("SE HA DESHABILITADO AL COMERCIAL")
+
+            buscarPorID(valorID)
+            cbZONA1.SelectedIndex = 0
+            cbZONA2.SelectedIndex = 0
+        End If
+
+
+    End Sub
     Private Sub btnMODIFICAR_Click(sender As Object, e As EventArgs) Handles btnMODIFICAR.Click
         MessageBox.Show("VA A HABLITAR LA EDICIÓN DE DATOS DEL COMERCIAL")
         btnGUARDAR.Enabled = True
@@ -61,6 +94,7 @@ Public Class CONSULTA_COMERCIALES
     End Sub
     Private Sub btnGUARDAR_Click(sender As Object, e As EventArgs) Handles btnGUARDAR.Click
         Dim insertQuery As String
+        Dim sinZona As String = "1"
         If TB_Nombre.Text = "" Or TB_Apellido1.Text = "" Or TB_Apellido2.Text = "" Or TB_DNI.Text = "" Or TB_Mail.Text = "" Or TB_Tlf.Text = "" Or TB_Direccion.Text = "" Or TB_FechaContratacion.Text = "" Then
             MessageBox.Show("Uno o varios campos está vacío.")
         ElseIf Not validarFecha(TB_FechaContratacion.Text) Then
@@ -78,8 +112,8 @@ Public Class CONSULTA_COMERCIALES
                     TELEFONO = '" & TB_Tlf.Text.ToUpper & "',
                     DIRECCION = '" & TB_Direccion.Text.ToUpper & "',
                     FECHA_CONTRATACION = '" & TB_FechaContratacion.Text & "',
-                    ZONA_PRINCIPAL = '" & obtenerIDZona(cbZONA1.SelectedItem.ToString) & "',
-                    ZONA_ADICIONAL = '" & obtenerIDZona(cbZONA2.SelectedItem.ToString) & "'
+                    ZONA_PRINCIPAL = '" & obtenerIDZona(cbZONA1.SelectedItem) & "',
+                    ZONA_ADICIONAL = '" & obtenerIDZona(cbZONA1.SelectedItem) & "'
                 WHERE
                     ID_COMERCIAL = '" & TB_ID.Text & "'"
 
@@ -180,5 +214,4 @@ Public Class CONSULTA_COMERCIALES
         End Try
 
     End Function
-
 End Class
