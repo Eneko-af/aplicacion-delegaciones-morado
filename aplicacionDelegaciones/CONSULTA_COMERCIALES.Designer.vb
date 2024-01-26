@@ -52,6 +52,8 @@ Partial Class CONSULTA_COMERCIALES
         Me.cbZONA1 = New System.Windows.Forms.ComboBox()
         Me.cbZONA2 = New System.Windows.Forms.ComboBox()
         Me.dltButton = New System.Windows.Forms.Button()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.CB_Activo = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -330,14 +332,35 @@ Partial Class CONSULTA_COMERCIALES
         Me.dltButton.Name = "dltButton"
         Me.dltButton.Size = New System.Drawing.Size(188, 48)
         Me.dltButton.TabIndex = 34
-        Me.dltButton.Text = "ELIMINAR"
+        Me.dltButton.Text = "DESABILITAR"
         Me.dltButton.UseVisualStyleBackColor = True
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(723, 515)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(82, 22)
+        Me.Label11.TabIndex = 35
+        Me.Label11.Text = "ACTIVO"
+        '
+        'CB_Activo
+        '
+        Me.CB_Activo.Enabled = False
+        Me.CB_Activo.FormattingEnabled = True
+        Me.CB_Activo.Location = New System.Drawing.Point(866, 515)
+        Me.CB_Activo.Name = "CB_Activo"
+        Me.CB_Activo.Size = New System.Drawing.Size(157, 24)
+        Me.CB_Activo.TabIndex = 37
         '
         'CONSULTA_COMERCIALES
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1335, 650)
+        Me.Controls.Add(Me.CB_Activo)
+        Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.dltButton)
         Me.Controls.Add(Me.cbZONA2)
         Me.Controls.Add(Me.cbZONA1)
@@ -405,4 +428,6 @@ Partial Class CONSULTA_COMERCIALES
     Public WithEvents cbZONA1 As ComboBox
     Public WithEvents cbZONA2 As ComboBox
     Friend WithEvents dltButton As Button
+    Friend WithEvents Label11 As Label
+    Public WithEvents CB_Activo As ComboBox
 End Class

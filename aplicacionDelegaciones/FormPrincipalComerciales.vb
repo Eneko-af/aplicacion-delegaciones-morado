@@ -5,18 +5,18 @@ Imports System.Windows.Forms.VisualStyles
 Public Class FormPrincipalComerciales
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        CB_FIltrarActivos.Checked = True
         TA_FiltrarPorNIE.MaxLength = 10
 
         Dim dtZonas As New DataTable
         Dim queryZonas As String = "SELECT * FROM ZONAS"
-        Dim query As String = "SELECT * FROM COMERCIALES"
+        Dim query As String = "SELECT * FROM COMERCIALES WHERE ACTIVO = 1"
 
         rellenarDG(query)
 
         dtZonas = establecerConexion(queryZonas)
 
-        ComboBox1.Items.Add("SIN ZONA")
+        ComboBox1.Items.Add("QUITAR FILTROS ZONA")
 
         For Each row As DataRow In dtZonas.Rows
 
@@ -29,44 +29,52 @@ Public Class FormPrincipalComerciales
     Private Sub DataGridView1_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseDoubleClick
 
         If e.RowIndex >= 0 Then
-            Dim dtZonas As New DataTable
-            Dim queryZonas As String
-            Dim valorIDComercial As Object
-            Dim valorZonaPrincipal As Object
-            Dim valorZonaSecundaria As Object
+            Try
+                Dim dtZonas As New DataTable
+                Dim queryZonas As String
+                Dim valorIDComercial As Object
+                Dim valorZonaPrincipal As Object
+                Dim valorZonaSecundaria As Object
 
-            queryZonas = "SELECT * FROM ZONAS"
-            valorIDComercial = DataGridView1.Rows(e.RowIndex).Cells(0).Value
-            valorZonaPrincipal = DataGridView1.Rows(e.RowIndex).Cells(9).Value
-            valorZonaSecundaria = DataGridView1.Rows(e.RowIndex).Cells(10).Value
+                queryZonas = "SELECT * FROM ZONAS"
+                valorIDComercial = DataGridView1.Rows(e.RowIndex).Cells(0).Value
+                valorZonaPrincipal = DataGridView1.Rows(e.RowIndex).Cells(9).Value
+                valorZonaSecundaria = DataGridView1.Rows(e.RowIndex).Cells(10).Value
 
-            dtZonas = establecerConexion(queryZonas)
+                dtZonas = establecerConexion(queryZonas)
 
-            Dim formCONSULTAS As New CONSULTA_COMERCIALES
+                Dim formCONSULTAS As New CONSULTA_COMERCIALES
 
-            formCONSULTAS.TB_ID.Text = valorIDComercial
+                formCONSULTAS.TB_ID.Text = valorIDComercial
 
-            For Each row As DataRow In dtZonas.Rows
+                For Each row As DataRow In dtZonas.Rows
 
-                formCONSULTAS.cbZONA1.Items.Add(row("DESCRIPCION_ZONA").ToString())
-                formCONSULTAS.cbZONA2.Items.Add(row("DESCRIPCION_ZONA").ToString())
+                    formCONSULTAS.cbZONA1.Items.Add(row("DESCRIPCION_ZONA").ToString())
+                    formCONSULTAS.cbZONA2.Items.Add(row("DESCRIPCION_ZONA").ToString())
 
-            Next
+                Next
 
-            formCONSULTAS.cbZONA1.SelectedIndex = valorZonaPrincipal - 1
-            formCONSULTAS.cbZONA2.SelectedIndex = valorZonaSecundaria - 1
+                formCONSULTAS.cbZONA1.SelectedIndex = valorZonaPrincipal - 1
+                formCONSULTAS.cbZONA2.SelectedIndex = valorZonaSecundaria - 1
 
-            formCONSULTAS.ShowDialog()
+                formCONSULTAS.ShowDialog()
+            Catch ex As System.InvalidCastException
+                MessageBox.Show("Debe seleccionar una fila con datos")
+            Catch ex_2 As Exception
+                MessageBox.Show(ex_2.StackTrace)
+            End Try
+
 
         End If
     End Sub
 
     Private Sub buscarPorZonas(selectedItem As String)
+        CB_FIltrarActivos.Checked = True
         Dim query As String = "SELECT * 
                                         FROM COMERCIALES WHERE ZONA_PRINCIPAL = (      
                                         SELECT ID_ZONA
                                         FROM ZONAS
-                                        WHERE DESCRIPCION_ZONA = '" & selectedItem & "')"
+                                        WHERE DESCRIPCION_ZONA = '" & selectedItem & "') AND ACTIVO = 1"
         rellenarDG(query)
     End Sub
 
@@ -87,21 +95,34 @@ Public Class FormPrincipalComerciales
     Private Sub TA_FiltrarPorNIE_TextChanged(sender As Object, e As EventArgs) Handles TA_FiltrarPorNIE.TextChanged
 
         If TA_FiltrarPorNIE.Text = "" Then
-            Dim query As String = "SELECT * FROM COMERCIALES"
-            rellenarDG(query)
-            ComboBox1.Enabled = True
+            If CB_FIltrarActivos.Checked = True Then
+                Dim query As String = "SELECT * FROM COMERCIALES WHERE ACTIVO = 1"
+                rellenarDG(query)
+                ComboBox1.Enabled = True
+            Else
+                Dim query As String = "SELECT * FROM COMERCIALES"
+                rellenarDG(query)
+                ComboBox1.Enabled = True
+            End If
+
         Else
-            buscarPorDNI(TA_FiltrarPorNIE.Text)
+                buscarPorDNI(TA_FiltrarPorNIE.Text)
             ComboBox1.Enabled = False
         End If
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        Dim query As String
         If ComboBox1.SelectedIndex > 0 Then
             buscarPorZonas(ComboBox1.SelectedItem)
             TA_FiltrarPorNIE.ReadOnly = True
         Else
-            Dim query As String = "SELECT * FROM COMERCIALES"
+            If CB_FIltrarActivos.Checked = True Then
+                query = "SELECT * FROM COMERCIALES WHERE ACTIVO = 1"
+            Else
+                query = "SELECT * FROM COMERCIALES"
+            End If
+
             rellenarDG(query)
             TA_FiltrarPorNIE.ReadOnly = False
             vaciarCampos()
@@ -137,10 +158,16 @@ Public Class FormPrincipalComerciales
     End Function
 
     Private Sub refreshButton_Click(sender As Object, e As EventArgs) Handles refreshButton.Click
-
+        Dim query As String
         Dim dtZonas As New DataTable
         Dim queryZonas As String = "SELECT * FROM ZONAS"
-        Dim query As String = "SELECT * FROM COMERCIALES"
+
+        If CB_FIltrarActivos.Checked = True Then
+            query = "SELECT * FROM COMERCIALES WHERE ACTIVO = 1"
+        Else
+            query = "SELECT * FROM COMERCIALES"
+        End If
+
 
         rellenarDG(query)
 

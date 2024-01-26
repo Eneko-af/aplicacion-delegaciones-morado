@@ -6,15 +6,16 @@ Public Class FormAniadirComercial
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim activo As Boolean = True
 
         If TB_Nombre.Text = "" Or TB_Apellido1.Text = "" Or TB_Apellido2.Text = "" Or TB_DNI.Text = "" Or TB_Mail.Text = "" Or TB_Tlf.Text = "" Or TB_Direccion.Text = "" Or TB_FechaContratacion.Text = "" Then
             MessageBox.Show("Uno o varios campos está vacío.")
         ElseIf Not validarFecha(TB_FechaContratacion.Text) Then
             MessageBox.Show("La fecha de contratación no está en el formato correcto (dd/MM/yyyy).")
         Else
+            Dim nuevaInsercionQuery As String = "INSERT INTO COMERCIALES (ID_COMERCIAL, NOMBRE, APELLIDO_UNO, APELLIDO_DOS, NIE, EMAIL, TELEFONO, DIRECCION, FECHA_CONTRATACION, ZONA_PRINCIPAL, ZONA_ADICIONAL, ACTIVO) " &
+                                    "VALUES ('" & TB_ID.Text & "', '" & TB_Nombre.Text.ToUpper & "', '" & TB_Apellido1.Text.ToUpper & "', '" & TB_Apellido2.Text.ToUpper & "', '" & TB_DNI.Text.ToUpper & "', '" & TB_Mail.Text.ToUpper & "', '" & TB_Tlf.Text.ToUpper & "', '" & TB_Direccion.Text.ToUpper & "', '" & TB_FechaContratacion.Text & "', '" & obtenerIDZona(cbZONA1.SelectedItem.ToString) & "', '" & obtenerIDZona(cbZONA2.SelectedItem.ToString) & "', '" & activo & "')"
 
-            Dim nuevaInsercionQuery As String = "INSERT INTO COMERCIALES (ID_COMERCIAL, NOMBRE, APELLIDO_UNO, APELLIDO_DOS, NIE, EMAIL, TELEFONO, DIRECCION, FECHA_CONTRATACION, ZONA_PRINCIPAL, ZONA_ADICIONAL) " &
-                                                "VALUES ('" & TB_ID.Text & "', '" & TB_Nombre.Text.ToUpper & "', '" & TB_Apellido1.Text.ToUpper & "', '" & TB_Apellido2.Text.ToUpper & "', '" & TB_DNI.Text.ToUpper & "', '" & TB_Mail.Text.ToUpper & "', '" & TB_Tlf.Text.ToUpper & "', '" & TB_Direccion.Text.ToUpper & "', '" & TB_FechaContratacion.Text & "', '" & obtenerIDZona(cbZONA1.SelectedItem.ToString) & "', '" & obtenerIDZona(cbZONA2.SelectedItem.ToString) & "')"
             conexionInstert(nuevaInsercionQuery)
             MessageBox.Show("SE HA GUARDADO LA INFORMACIÓN")
             ActiveForm.Close()
@@ -57,7 +58,7 @@ Public Class FormAniadirComercial
     Private Function obtenerIDZona(descripcionZona As String) As String
         Dim dt As New DataTable
         Dim idZona As Integer
-        Dim query As String = "SELECT ID_ZONA FROM ZONAS
+        Dim query As String = "Select ID_ZONA FROM ZONAS
                                 WHERE DESCRIPCION_ZONA = '" & descripcionZona & "'"
 
         dt = establecerConexion(query)

@@ -21,6 +21,7 @@ Public Class CONSULTA_COMERCIALES
         Dim dtComercial As New DataTable
         Dim dtZonas As New DataTable
         Dim dr As DataRow()
+        Dim activo As Boolean
 
         dtComercial = establecerConexion(query)
 
@@ -30,6 +31,16 @@ Public Class CONSULTA_COMERCIALES
             'DATOS EMPRESA
             TB_Mail.Text = linea("EMAIL")
             TB_FechaContratacion.Text = linea("FECHA_CONTRATACION")
+            activo = linea("ACTIVO")
+
+            CB_Activo.Items.Add("ACTIVO")
+            CB_Activo.Items.Add("INACTIVO")
+
+            If activo = True Then
+                CB_Activo.SelectedIndex = 0
+            Else
+                CB_Activo.SelectedIndex = 1
+            End If
 
             For Each row As DataRow In dtZonas.Rows
 
@@ -62,16 +73,16 @@ Public Class CONSULTA_COMERCIALES
             insertQuery = "
                 UPDATE COMERCIALES
                 SET
-                    NOMBRE = '(DESABILITADO)" & TB_Nombre.Text.ToUpper & "',
+                    NOMBRE = '" & TB_Nombre.Text.ToUpper & "',
                     APELLIDO_UNO = '" & TB_Apellido1.Text.ToUpper & "',
                     APELLIDO_DOS = '" & TB_Apellido2.Text.ToUpper & "',
-                    NIE = '',
                     EMAIL = '',
                     TELEFONO = '',
                     DIRECCION = '',
                     FECHA_CONTRATACION = '" & TB_FechaContratacion.Text & "',
                     ZONA_PRINCIPAL = '" & obtenerIDZona("SIN ZONA") & "',
-                    ZONA_ADICIONAL = '" & obtenerIDZona("SIN ZONA") & "'
+                    ZONA_ADICIONAL = '" & obtenerIDZona("SIN ZONA") & "',
+                    ACTIVO = 0
                 WHERE
                     ID_COMERCIAL = '" & TB_ID.Text & "'"
 
@@ -86,8 +97,15 @@ Public Class CONSULTA_COMERCIALES
 
     End Sub
     Private Sub btnMODIFICAR_Click(sender As Object, e As EventArgs) Handles btnMODIFICAR.Click
+        Dim activo As Boolean
         MessageBox.Show("VA A HABLITAR LA EDICIÓN DE DATOS DEL COMERCIAL")
         btnGUARDAR.Enabled = True
+
+        If CB_Activo.SelectedItem = "ACTIVO" Then
+            CB_Activo.Enabled = False
+        Else
+            CB_Activo.Enabled = True
+        End If
 
         habilitarTextBoxes(False)
 
@@ -95,12 +113,18 @@ Public Class CONSULTA_COMERCIALES
     Private Sub btnGUARDAR_Click(sender As Object, e As EventArgs) Handles btnGUARDAR.Click
         Dim insertQuery As String
         Dim sinZona As String = "1"
+        Dim activo As Boolean
+
         If TB_Nombre.Text = "" Or TB_Apellido1.Text = "" Or TB_Apellido2.Text = "" Or TB_DNI.Text = "" Or TB_Mail.Text = "" Or TB_Tlf.Text = "" Or TB_Direccion.Text = "" Or TB_FechaContratacion.Text = "" Then
             MessageBox.Show("Uno o varios campos está vacío.")
         ElseIf Not validarFecha(TB_FechaContratacion.Text) Then
             MessageBox.Show("La fecha de contratación no está en el formato correcto (dd/MM/yyyy).")
         Else
-
+            If CB_Activo.SelectedItem.ToString = "ACTIVO" Then
+                activo = True
+            Else
+                activo = False
+            End If
             insertQuery = "
                 UPDATE COMERCIALES
                 SET
@@ -113,7 +137,8 @@ Public Class CONSULTA_COMERCIALES
                     DIRECCION = '" & TB_Direccion.Text.ToUpper & "',
                     FECHA_CONTRATACION = '" & TB_FechaContratacion.Text & "',
                     ZONA_PRINCIPAL = '" & obtenerIDZona(cbZONA1.SelectedItem) & "',
-                    ZONA_ADICIONAL = '" & obtenerIDZona(cbZONA1.SelectedItem) & "'
+                    ZONA_ADICIONAL = '" & obtenerIDZona(cbZONA1.SelectedItem) & "',
+                    ACTIVO = '" & activo & "'
                 WHERE
                     ID_COMERCIAL = '" & TB_ID.Text & "'"
 

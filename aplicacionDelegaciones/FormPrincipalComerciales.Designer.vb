@@ -30,6 +30,7 @@ Partial Class FormPrincipalComerciales
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.btnAniadirComercial = New System.Windows.Forms.Button()
         Me.refreshButton = New System.Windows.Forms.Button()
+        Me.CB_FIltrarActivos = New System.Windows.Forms.CheckBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -52,9 +53,10 @@ Partial Class FormPrincipalComerciales
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(12, 103)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(1274, 374)
+        Me.DataGridView1.Size = New System.Drawing.Size(1900, 374)
         Me.DataGridView1.TabIndex = 1
         '
         'Label2
@@ -95,7 +97,7 @@ Partial Class FormPrincipalComerciales
         '
         'btnAniadirComercial
         '
-        Me.btnAniadirComercial.Location = New System.Drawing.Point(979, 52)
+        Me.btnAniadirComercial.Location = New System.Drawing.Point(969, 60)
         Me.btnAniadirComercial.Name = "btnAniadirComercial"
         Me.btnAniadirComercial.Size = New System.Drawing.Size(174, 35)
         Me.btnAniadirComercial.TabIndex = 8
@@ -104,18 +106,29 @@ Partial Class FormPrincipalComerciales
         '
         'refreshButton
         '
-        Me.refreshButton.Location = New System.Drawing.Point(1159, 63)
+        Me.refreshButton.Location = New System.Drawing.Point(1149, 73)
         Me.refreshButton.Name = "refreshButton"
         Me.refreshButton.Size = New System.Drawing.Size(106, 23)
         Me.refreshButton.TabIndex = 9
         Me.refreshButton.Text = "REFRESCAR"
         Me.refreshButton.UseVisualStyleBackColor = True
         '
+        'CB_FIltrarActivos
+        '
+        Me.CB_FIltrarActivos.AutoSize = True
+        Me.CB_FIltrarActivos.Location = New System.Drawing.Point(1727, 76)
+        Me.CB_FIltrarActivos.Name = "CB_FIltrarActivos"
+        Me.CB_FIltrarActivos.Size = New System.Drawing.Size(185, 20)
+        Me.CB_FIltrarActivos.TabIndex = 11
+        Me.CB_FIltrarActivos.Text = "FILTRAR SOLO ACTIVOS"
+        Me.CB_FIltrarActivos.UseVisualStyleBackColor = True
+        '
         'FormPrincipalComerciales
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1298, 493)
+        Me.ClientSize = New System.Drawing.Size(1924, 493)
+        Me.Controls.Add(Me.CB_FIltrarActivos)
         Me.Controls.Add(Me.refreshButton)
         Me.Controls.Add(Me.btnAniadirComercial)
         Me.Controls.Add(Me.ComboBox1)
@@ -141,4 +154,5 @@ Partial Class FormPrincipalComerciales
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents btnAniadirComercial As Button
     Friend WithEvents refreshButton As Button
+    Friend WithEvents CB_FIltrarActivos As CheckBox
 End Class
