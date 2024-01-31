@@ -73,11 +73,23 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="FormPrincipalComerciales.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="FormPrincipalComerciales.Designer.vb">
+      <DependentUpon>FormPrincipalComerciales.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONSULTA_COMERCIALES.Designer.vb">
+      <DependentUpon>CONSULTA_COMERCIALES.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CONSULTA_COMERCIALES.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAniadirComercial.Designer.vb">
+      <DependentUpon>FormAniadirComercial.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAniadirComercial.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -97,8 +109,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+=======
+    <EmbeddedResource Include="CONSULTA_COMERCIALES.resx">
+      <DependentUpon>CONSULTA_COMERCIALES.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAniadirComercial.resx">
+      <DependentUpon>FormAniadirComercial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrincipalComerciales.resx">
+      <DependentUpon>FormPrincipalComerciales.vb</DependentUpon>
+>>>>>>> origin/artemijs
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
