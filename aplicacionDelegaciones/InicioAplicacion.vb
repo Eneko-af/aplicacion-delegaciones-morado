@@ -1,4 +1,4 @@
-﻿Public Class Form1
+﻿Public Class InicioAplicacion
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
     End Sub
@@ -15,7 +15,15 @@
 
     End Sub
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        GestionPedidos.Show()
+    End Sub
 
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        Close()
     End Sub
 End Class
