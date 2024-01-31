@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.IO
 
 Public Class ConsultaArticulo
 
@@ -94,6 +95,7 @@ Public Class ConsultaArticulo
     End Sub
 
     Sub Consultas(ByVal fila As String, ByVal clave As String)
+
         Try
             Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=PRUEBA4;User ID=sa;Password=123456aA;"
 
@@ -136,5 +138,15 @@ Public Class ConsultaArticulo
     Private Sub Modificar_Click(sender As Object, e As EventArgs) Handles Modificar.Click
         Dim formModificar As New Modificar()
         formModificar.ShowDialog()
+    End Sub
+
+    Private Sub Exportar_Click(sender As Object, e As EventArgs) Handles Exportar.Click
+        Dim formExportar As New Exportar()
+        formExportar.ShowDialog()
+    End Sub
+
+    Private Sub Importar_Click(sender As Object, e As EventArgs) Handles Importar.Click
+        Dim formImportar As New Importar()
+        formImportar.ShowDialog()
     End Sub
 End Class

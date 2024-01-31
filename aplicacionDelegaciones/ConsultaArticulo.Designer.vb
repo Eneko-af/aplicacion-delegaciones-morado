@@ -166,7 +166,7 @@ Partial Class ConsultaArticulo
         '
         'Agregar
         '
-        Me.Agregar.Font = New System.Drawing.Font("Times New Roman", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Agregar.Font = New System.Drawing.Font("Times New Roman", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Agregar.Location = New System.Drawing.Point(36, 59)
         Me.Agregar.Name = "Agregar"
         Me.Agregar.Size = New System.Drawing.Size(157, 46)
@@ -176,7 +176,7 @@ Partial Class ConsultaArticulo
         '
         'Borrar
         '
-        Me.Borrar.Font = New System.Drawing.Font("Times New Roman", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Borrar.Font = New System.Drawing.Font("Times New Roman", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Borrar.Location = New System.Drawing.Point(199, 59)
         Me.Borrar.Name = "Borrar"
         Me.Borrar.Size = New System.Drawing.Size(157, 46)
@@ -186,7 +186,7 @@ Partial Class ConsultaArticulo
         '
         'Modificar
         '
-        Me.Modificar.Font = New System.Drawing.Font("Times New Roman", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Modificar.Font = New System.Drawing.Font("Times New Roman", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Modificar.Location = New System.Drawing.Point(364, 59)
         Me.Modificar.Name = "Modificar"
         Me.Modificar.Size = New System.Drawing.Size(157, 46)
@@ -196,7 +196,7 @@ Partial Class ConsultaArticulo
         '
         'Importar
         '
-        Me.Importar.Font = New System.Drawing.Font("Times New Roman", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Importar.Font = New System.Drawing.Font("Times New Roman", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Importar.Location = New System.Drawing.Point(36, 111)
         Me.Importar.Name = "Importar"
         Me.Importar.Size = New System.Drawing.Size(157, 46)
@@ -206,7 +206,7 @@ Partial Class ConsultaArticulo
         '
         'Exportar
         '
-        Me.Exportar.Font = New System.Drawing.Font("Times New Roman", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Exportar.Font = New System.Drawing.Font("Times New Roman", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Exportar.Location = New System.Drawing.Point(199, 111)
         Me.Exportar.Name = "Exportar"
         Me.Exportar.Size = New System.Drawing.Size(157, 46)

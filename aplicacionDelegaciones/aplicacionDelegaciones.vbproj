@@ -92,6 +92,18 @@
       <DependentUpon>ConsultaArticulo.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Exportar.Designer.vb">
+      <DependentUpon>Exportar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Exportar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Importar.Designer.vb">
+      <DependentUpon>Importar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Importar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modificar.Designer.vb">
       <DependentUpon>Modificar.vb</DependentUpon>
     </Compile>
@@ -124,6 +136,12 @@
     <EmbeddedResource Include="ConsultaArticulo.resx">
       <DependentUpon>ConsultaArticulo.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Exportar.resx">
+      <DependentUpon>Exportar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Importar.resx">
+      <DependentUpon>Importar.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modificar.resx">
       <DependentUpon>Modificar.vb</DependentUpon>
     </EmbeddedResource>
@@ -145,6 +163,44 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Outlook">
+      <Guid>{00062FFF-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>9</VersionMajor>
+      <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.OutlookViewCtl">
+      <Guid>{0006F062-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>2</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

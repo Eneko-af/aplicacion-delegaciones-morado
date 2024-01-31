@@ -126,7 +126,7 @@ Public Class Modificar
                 Dim queryString As String = "UPDATE ARTICULOS
                                           SET Nombre = @Nombre,
                                               Precio = @Precio,
-                                              Descripcion = @Descripcion,
+                                              Descripcion = @Descripcion, 
                                               Stock_Max = @Stock_Max,
                                               Stock_Min = @Stock_Min,
                                               CATEGORIA_ID = @Categoria
