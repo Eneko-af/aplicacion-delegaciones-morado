@@ -32,7 +32,7 @@ Public Class FormAniadirComercial
         stringConexion = New SqlConnectionStringBuilder()
 
         stringConexion.DataSource = "192.168.0.223"
-        stringConexion.InitialCatalog = "PRUEBA4"
+        stringConexion.InitialCatalog = "EUSKOMITO"
         stringConexion.UserID = "sa"
         stringConexion.Password = "123456aA"
 
@@ -58,7 +58,7 @@ Public Class FormAniadirComercial
     Private Function obtenerIDZona(descripcionZona As String) As String
         Dim dt As New DataTable
         Dim idZona As Integer
-        Dim query As String = "Select ID_ZONA FROM ZONAS
+        Dim query As String = "SELECT ID_ZONA FROM ZONAS
                                 WHERE DESCRIPCION_ZONA = '" & descripcionZona & "'"
 
         dt = establecerConexion(query)
@@ -78,7 +78,7 @@ Public Class FormAniadirComercial
 
 
         stringConexion.DataSource = "192.168.0.223"
-        stringConexion.InitialCatalog = "PRUEBA4"
+        stringConexion.InitialCatalog = "EUSKOMITO"
         stringConexion.UserID = "sa"
         stringConexion.Password = "123456aA"
 

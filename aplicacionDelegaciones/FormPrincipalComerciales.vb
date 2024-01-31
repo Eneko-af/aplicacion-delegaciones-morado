@@ -3,7 +3,6 @@ Imports System.Data.SqlClient
 Imports System.Windows.Forms.VisualStyles
 
 Public Class FormPrincipalComerciales
-
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CB_FIltrarActivos.Checked = True
         TA_FiltrarPorNIE.MaxLength = 10
@@ -137,7 +136,7 @@ Public Class FormPrincipalComerciales
         stringConexion = New SqlConnectionStringBuilder()
 
         stringConexion.DataSource = "192.168.0.223"
-        stringConexion.InitialCatalog = "PRUEBA4"
+        stringConexion.InitialCatalog = "EUSKOMITO"
         stringConexion.UserID = "sa"
         stringConexion.Password = "123456aA"
 
@@ -168,6 +167,7 @@ Public Class FormPrincipalComerciales
             query = "SELECT * FROM COMERCIALES"
         End If
 
+        ComboBox1.SelectedIndex = 0
 
         rellenarDG(query)
 

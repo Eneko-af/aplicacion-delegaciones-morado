@@ -137,7 +137,7 @@ Public Class CONSULTA_COMERCIALES
                     DIRECCION = '" & TB_Direccion.Text.ToUpper & "',
                     FECHA_CONTRATACION = '" & TB_FechaContratacion.Text & "',
                     ZONA_PRINCIPAL = '" & obtenerIDZona(cbZONA1.SelectedItem) & "',
-                    ZONA_ADICIONAL = '" & obtenerIDZona(cbZONA1.SelectedItem) & "',
+                    ZONA_ADICIONAL = '" & obtenerIDZona(cbZONA2.SelectedItem) & "',
                     ACTIVO = '" & activo & "'
                 WHERE
                     ID_COMERCIAL = '" & TB_ID.Text & "'"
@@ -194,7 +194,7 @@ Public Class CONSULTA_COMERCIALES
 
 
         stringConexion.DataSource = "192.168.0.223"
-        stringConexion.InitialCatalog = "PRUEBA4"
+        stringConexion.InitialCatalog = "EUSKOMITO"
         stringConexion.UserID = "sa"
         stringConexion.Password = "123456aA"
 
@@ -222,7 +222,7 @@ Public Class CONSULTA_COMERCIALES
         stringConexion = New SqlConnectionStringBuilder()
 
         stringConexion.DataSource = "192.168.0.223"
-        stringConexion.InitialCatalog = "PRUEBA4"
+        stringConexion.InitialCatalog = "EUSKOMITO"
         stringConexion.UserID = "sa"
         stringConexion.Password = "123456aA"
 
