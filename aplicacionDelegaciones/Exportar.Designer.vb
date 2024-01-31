@@ -1,5 +1,9 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+<<<<<<< HEAD:aplicacionDelegaciones/Form1.Designer.vb
 Partial Class Form1
+=======
+Partial Class Exportar
+>>>>>>> origin/brayan:aplicacionDelegaciones/Exportar.Designer.vb
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -22,6 +26,7 @@ Partial Class Form1
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+<<<<<<< HEAD:aplicacionDelegaciones/Form1.Designer.vb
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -85,4 +90,18 @@ Partial Class Form1
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
+=======
+        Me.SuspendLayout()
+        '
+        'Exportar
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(148, 17)
+        Me.Name = "Exportar"
+        Me.Text = "Exportar"
+        Me.ResumeLayout(False)
+
+    End Sub
+>>>>>>> origin/brayan:aplicacionDelegaciones/Exportar.Designer.vb
 End Class
