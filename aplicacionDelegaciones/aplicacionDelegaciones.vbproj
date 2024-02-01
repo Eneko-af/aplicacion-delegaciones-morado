@@ -73,6 +73,24 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CONSULTA_PARTNERS.Designer.vb">
+      <DependentUpon>CONSULTA_PARTNERS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CONSULTA_PARTNERS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAniadirPartner.Designer.vb">
+      <DependentUpon>FormAniadirPartner.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAniadirPartner.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrincipalPartners.Designer.vb">
+      <DependentUpon>FormPrincipalPartners.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrincipalPartners.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormPrincipalComerciales.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +129,15 @@
   <ItemGroup>
     <EmbeddedResource Include="CONSULTA_COMERCIALES.resx">
       <DependentUpon>CONSULTA_COMERCIALES.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CONSULTA_PARTNERS.resx">
+      <DependentUpon>CONSULTA_PARTNERS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAniadirPartner.resx">
+      <DependentUpon>FormAniadirPartner.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrincipalPartners.resx">
+      <DependentUpon>FormPrincipalPartners.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAniadirComercial.resx">
       <DependentUpon>FormAniadirComercial.vb</DependentUpon>

@@ -22,6 +22,7 @@ Partial Class FormPrincipalComerciales
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -31,7 +32,10 @@ Partial Class FormPrincipalComerciales
         Me.btnAniadirComercial = New System.Windows.Forms.Button()
         Me.refreshButton = New System.Windows.Forms.Button()
         Me.CB_FIltrarActivos = New System.Windows.Forms.CheckBox()
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -123,11 +127,21 @@ Partial Class FormPrincipalComerciales
         Me.CB_FIltrarActivos.Text = "FILTRAR SOLO ACTIVOS"
         Me.CB_FIltrarActivos.UseVisualStyleBackColor = True
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(544, 9)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(458, 23)
+        Me.Button1.TabIndex = 12
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'FormPrincipalComerciales
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1924, 493)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.CB_FIltrarActivos)
         Me.Controls.Add(Me.refreshButton)
         Me.Controls.Add(Me.btnAniadirComercial)
@@ -141,6 +155,7 @@ Partial Class FormPrincipalComerciales
         Me.Text = "COMERCIALES"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -155,4 +170,6 @@ Partial Class FormPrincipalComerciales
     Friend WithEvents btnAniadirComercial As Button
     Friend WithEvents refreshButton As Button
     Friend WithEvents CB_FIltrarActivos As CheckBox
+    Friend WithEvents BindingSource1 As BindingSource
+    Friend WithEvents Button1 As Button
 End Class
