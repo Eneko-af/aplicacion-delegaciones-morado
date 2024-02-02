@@ -248,7 +248,7 @@ Partial Class CONSULTA_PARTNERS
         Me.dltButton.Name = "dltButton"
         Me.dltButton.Size = New System.Drawing.Size(188, 48)
         Me.dltButton.TabIndex = 96
-        Me.dltButton.Text = "DESABILITAR"
+        Me.dltButton.Text = "BORRAR"
         Me.dltButton.UseVisualStyleBackColor = True
         '
         'btnGUARDAR

@@ -79,6 +79,24 @@
     <Compile Include="CONSULTA_PARTNERS.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormModficarTLFTransportista.Designer.vb">
+      <DependentUpon>FormModficarTLFTransportista.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormModficarTLFTransportista.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAniadirTransportista.Designer.vb">
+      <DependentUpon>FormAniadirTransportista.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAniadirTransportista.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrincipalTransportistas.Designer.vb">
+      <DependentUpon>FormPrincipalTransportistas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrincipalTransportistas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormAniadirPartner.Designer.vb">
       <DependentUpon>FormAniadirPartner.vb</DependentUpon>
     </Compile>
@@ -133,8 +151,14 @@
     <EmbeddedResource Include="CONSULTA_PARTNERS.resx">
       <DependentUpon>CONSULTA_PARTNERS.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormModficarTLFTransportista.resx">
+      <DependentUpon>FormModficarTLFTransportista.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAniadirPartner.resx">
       <DependentUpon>FormAniadirPartner.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAniadirTransportista.resx">
+      <DependentUpon>FormAniadirTransportista.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipalPartners.resx">
       <DependentUpon>FormPrincipalPartners.vb</DependentUpon>
@@ -144,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipalComerciales.resx">
       <DependentUpon>FormPrincipalComerciales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrincipalTransportistas.resx">
+      <DependentUpon>FormPrincipalTransportistas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
