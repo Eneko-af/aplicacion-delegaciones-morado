@@ -29,7 +29,7 @@ Public Class Exportar
 
     Private Function RutaArchivoXml() As String
         ' Define la ruta del archivo XML
-        Return "..\\xml\\articulos.xml"
+        Return "articulos.xml"
     End Function
     Private Sub ComprobarYCrearArchivoXml()
         Dim rutaArchivo As String = RutaArchivoXml()
@@ -138,7 +138,7 @@ Public Class Exportar
             Dim cuerpo As String = "Actualizacion"
 
             ' Ruta del archivo adjunto (reemplaza esto con la ruta correcta de tu archivo Articulos.xml)
-            Dim rutaArchivoAdjunto As String = "..\\xml\\articulos.xml"
+            Dim rutaArchivoAdjunto As String = "articulos.xml"
 
             ' Verificar si el archivo existe antes de adjuntarlo
             If File.Exists(rutaArchivoAdjunto) Then
@@ -158,7 +158,7 @@ Public Class Exportar
     Private Sub CopiarArchivoXML()
         Try
             ' Ruta del archivo XML original
-            Dim rutaArchivoOriginal As String = "..\\xml\\articulos.xml"
+            Dim rutaArchivoOriginal As String = "articulos.xml"
 
             ' Ruta de destino (carpeta de descargas del usuario)
             Dim carpetaDescargas As String = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
