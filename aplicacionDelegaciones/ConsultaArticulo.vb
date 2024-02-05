@@ -6,7 +6,7 @@ Public Class ConsultaArticulo
     Private Sub ConsultaArticulo_Activated(sender As Object, e As EventArgs) Handles Me.Activated
         filtro.Items.Clear()
         Try
-            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=PRUEBA4;User ID=sa;Password=123456aA;"
+            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=EUSKOMITO;User ID=sa;Password=123456aA;"
 
             Dim queryString As String = "select ID_ARTICULO,NOMBRE,DESCRIPCION,PRECIO,STOCK_MAX,STOCK_MIN,CATEGORIA_ID
                                         from ARTICULOS"
@@ -33,7 +33,7 @@ Public Class ConsultaArticulo
         End Try
 
         Try
-            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=PRUEBA4;User ID=sa;Password=123456aA;"
+            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=EUSKOMITO;User ID=sa;Password=123456aA;"
             Dim queryString As String = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'ARTICULOS'"
 
             Using connection As New SqlConnection(connectionString)
@@ -65,7 +65,7 @@ Public Class ConsultaArticulo
 
 
         If fil.Length > 0 And con.Length > 0 Then
-            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=PRUEBA4;User ID=sa;Password=123456aA;"
+            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=EUSKOMITO;User ID=sa;Password=123456aA;"
 
             If fil = "ID_ARTICULO" Then
                 Consultas("ID_ARTICULO", con)
@@ -97,7 +97,7 @@ Public Class ConsultaArticulo
     Sub Consultas(ByVal fila As String, ByVal clave As String)
 
         Try
-            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=PRUEBA4;User ID=sa;Password=123456aA;"
+            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=EUSKOMITO;User ID=sa;Password=123456aA;"
 
             Dim queryString As String = "select ID_ARTICULO,NOMBRE,DESCRIPCION,PRECIO,STOCK_MAX,STOCK_MIN,CATEGORIA_ID
                                         from ARTICULOS 
@@ -125,6 +125,7 @@ Public Class ConsultaArticulo
         End Try
     End Sub
 
+
     Private Sub Agregar_Click(sender As Object, e As EventArgs) Handles Agregar.Click
         Dim formAgregarArticulo As New Agregar_articulo()
         formAgregarArticulo.ShowDialog()
@@ -148,5 +149,10 @@ Public Class ConsultaArticulo
     Private Sub Importar_Click(sender As Object, e As EventArgs) Handles Importar.Click
         Dim formImportar As New Importar()
         formImportar.ShowDialog()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim formFacturas As New Facturas()
+        formFacturas.ShowDialog()
     End Sub
 End Class

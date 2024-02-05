@@ -18,7 +18,7 @@ Public Class Agregar_articulo
 
     Private Sub llenar_categoria()
         Try
-            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=PRUEBA4;User ID=sa;Password=123456aA;"
+            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=EUSKOMITO;User ID=sa;Password=123456aA;"
             Dim queryString As String = "SELECT * FROM CATEGORIAS"
 
             Using connection As New SqlConnection(connectionString)
@@ -41,7 +41,7 @@ Public Class Agregar_articulo
 
     Private Sub ObtenerMaximo_Click()
         Try
-            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=PRUEBA4;User ID=sa;Password=123456aA;"
+            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=EUSKOMITO;User ID=sa;Password=123456aA;"
             Dim query As String = "SELECT MAX(ID_ARTICULO) FROM ARTICULOS"
 
             Using connection As New SqlConnection(connectionString)
@@ -127,7 +127,7 @@ Public Class Agregar_articulo
 
     Private Function InsertarNuevoArticulo(id As String, nom As String, des As String, pre As String, max As String, min As String, cat As String) As Boolean
         Try
-            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=PRUEBA4;User ID=sa;Password=123456aA;"
+            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=EUSKOMITO;User ID=sa;Password=123456aA;"
             Using connection As New SqlConnection(connectionString)
                 connection.Open()
 
@@ -145,7 +145,7 @@ Public Class Agregar_articulo
     End Function
     Private Function obtenerIDCategoria(categoria As String)
         Try
-            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=PRUEBA4;User ID=sa;Password=123456aA;"
+            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=EUSKOMITO;User ID=sa;Password=123456aA;"
             Dim query As String = "SELECT ID_CATEGORIA FROM CATEGORIAs WHERE NOMBRE LIKE '" + categoria + "'"
 
 

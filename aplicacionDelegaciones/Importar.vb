@@ -35,7 +35,7 @@ Public Class Importar
 
             Dim articulos As XmlNodeList = xmlDoc.SelectNodes("/Articulos/Articulo")
 
-            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=PRUEBA4;User ID=sa;Password=123456aA;"
+            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=EUSKOMITO;User ID=sa;Password=123456aA;"
 
             ' Crear la conexión
             Dim connection As New SqlConnection(connectionString)
@@ -92,6 +92,8 @@ Public Class Importar
 
                 cmd.ExecuteNonQuery()
             Next
+        Catch ex As FormatException
+            MessageBox.Show("Datos del xml incompatibles ¡Revisar!")
         Catch ex As Exception
             MessageBox.Show($"Error al importar los artículos: {ex.Message}")
         End Try

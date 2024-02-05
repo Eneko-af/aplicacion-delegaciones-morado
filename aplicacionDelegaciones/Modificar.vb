@@ -14,7 +14,7 @@ Public Class Modificar
         IDS.Items.Clear()
 
         Try
-            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=PRUEBA4;User ID=sa;Password=123456aA;"
+            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=EUSKOMITO;User ID=sa;Password=123456aA;"
             Dim queryString As String = "SELECT ID_ARTICULO FROM ARTICULOS"
 
             Using connection As New SqlConnection(connectionString)
@@ -38,7 +38,7 @@ Public Class Modificar
     Private Sub IDS_SelectedIndexChanged(sender As Object, e As EventArgs) Handles IDS.SelectedIndexChanged
 
         Try
-            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=PRUEBA4;User ID=sa;Password=123456aA;"
+            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=EUSKOMITO;User ID=sa;Password=123456aA;"
             Dim query As String = "SELECT  Nombre, Precio, Descripcion, Stock_Max, Stock_Min, Categoria_ID FROM ARTICULOS where id_articulo = " + IDS.Text
 
             Using connection As New SqlConnection(connectionString)
@@ -118,7 +118,7 @@ Public Class Modificar
 
     Private Function update(id As String, nom As String, pre As String, de As String, max As String, min As String, ca As String) As Boolean
         Try
-            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=PRUEBA4;User ID=sa;Password=123456aA;"
+            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=EUSKOMITO;User ID=sa;Password=123456aA;"
 
             Using connection As New SqlConnection(connectionString)
                 connection.Open()

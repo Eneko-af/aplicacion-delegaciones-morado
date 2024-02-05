@@ -12,7 +12,7 @@ Public Class Borrar
 
     Private Sub llenar_id()
         Try
-            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=PRUEBA4;User ID=sa;Password=123456aA;"
+            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=EUSKOMITO;User ID=sa;Password=123456aA;"
             Dim queryString As String = "SELECT ID_ARTICULO FROM ARTICULOS"
 
             Using connection As New SqlConnection(connectionString)
@@ -35,7 +35,7 @@ Public Class Borrar
 
     Private Sub IDS_SelectedIndexChanged(sender As Object, e As EventArgs) Handles IDS.SelectedIndexChanged
         Try
-            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=PRUEBA4;User ID=sa;Password=123456aA;"
+            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=EUSKOMITO;User ID=sa;Password=123456aA;"
             Dim query As String = "SELECT Nombre FROM ARTICULOS where id_articulo = " + IDS.Text
 
             Using connection As New SqlConnection(connectionString)
@@ -64,7 +64,7 @@ Public Class Borrar
 
     Private Function Delete(id As String) As Boolean
         Try
-            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=PRUEBA4;User ID=sa;Password=123456aA;"
+            Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=EUSKOMITO;User ID=sa;Password=123456aA;"
             Using connection As New SqlConnection(connectionString)
                 connection.Open()
 

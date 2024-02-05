@@ -42,6 +42,7 @@ Partial Class ConsultaArticulo
         Me.Modificar = New System.Windows.Forms.Button()
         Me.Importar = New System.Windows.Forms.Button()
         Me.Exportar = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.ContextMenuStrip2.SuspendLayout()
         Me.ContextMenuStrip4.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -214,11 +215,22 @@ Partial Class ConsultaArticulo
         Me.Exportar.Text = "Exportar"
         Me.Exportar.UseVisualStyleBackColor = True
         '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Times New Roman", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(364, 111)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(157, 46)
+        Me.Button1.TabIndex = 15
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'ConsultaArticulo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(958, 575)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Exportar)
         Me.Controls.Add(Me.Importar)
         Me.Controls.Add(Me.Modificar)
@@ -258,4 +270,5 @@ Partial Class ConsultaArticulo
     Friend WithEvents Modificar As Button
     Friend WithEvents Importar As Button
     Friend WithEvents Exportar As Button
+    Friend WithEvents Button1 As Button
 End Class

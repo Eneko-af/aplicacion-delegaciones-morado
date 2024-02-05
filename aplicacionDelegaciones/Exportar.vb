@@ -87,7 +87,7 @@ Public Class Exportar
                 writer.WriteStartElement("Articulos")
 
                 ' Consultar la base de datos y obtener los datos de los artículos
-                Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=PRUEBA4;User ID=sa;Password=123456aA;"
+                Dim connectionString As String = "Data Source=192.168.0.223;Initial Catalog=EUSKOMITO;User ID=sa;Password=123456aA;"
                 Dim query As String = "SELECT * FROM ARTICULOS"
 
                 Using connection As New SqlConnection(connectionString)
